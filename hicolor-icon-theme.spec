@@ -1,14 +1,14 @@
-Summary: Basic requirement for icon themes
-Name: hicolor-icon-theme
-Version: 0.10
-Release: %mkrel 1
-License: GPL
-Group: Graphical desktop/Other
-URL: http://freedesktop.org/Software/icon-theme
-Source0: http://icon-theme.freedesktop.org/releases/%{name}-%{version}.tar.bz2
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildArch: noarch
-Conflicts: kdelibs-common <= 30000000:3.2.1-1mdk
+Summary:	Basic requirement for icon themes
+Name:		hicolor-icon-theme
+Version:	0.10
+Release:	%mkrel 1
+License:	GPL
+Group:		Graphical desktop/Other
+URL:		http://icon-theme.freedesktop.org/wiki/HicolorTheme
+Source0:	http://icon-theme.freedesktop.org/releases/%{name}-%{version}.tar.bz2
+BuildArch:	noarch
+Conflicts:	kdelibs-common <= 30000000:3.2.1-1mdk
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Contains the basic directories and files needed for icon theme support.
@@ -23,13 +23,13 @@ Contains the basic directories and files needed for icon theme support.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %makeinstall_std
 touch %buildroot%{_datadir}/icons/hicolor/icon-theme.cache
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %post
 %update_icon_cache hicolor
@@ -44,5 +44,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/index.theme
 %{_datadir}/icons/hicolor/*/
 %ghost %{_datadir}/icons/hicolor/icon-theme.cache
-
-

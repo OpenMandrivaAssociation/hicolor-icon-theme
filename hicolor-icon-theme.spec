@@ -8,6 +8,7 @@ URL:		http://icon-theme.freedesktop.org/wiki/HicolorTheme
 Source0:	http://icon-theme.freedesktop.org/releases/%{name}-%{version}.tar.bz2
 BuildArch:	noarch
 Conflicts:	kdelibs-common <= 30000000:3.2.1-1mdk
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Contains the basic directories and files needed for icon theme support.

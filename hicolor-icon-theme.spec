@@ -1,7 +1,7 @@
 Summary:	Basic requirement for icon themes
 Name:		hicolor-icon-theme
 Version:	0.10
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPL
 Group:		Graphical desktop/Other
 URL:		http://icon-theme.freedesktop.org/wiki/HicolorTheme
@@ -28,6 +28,20 @@ rm -rf %{buildroot}
 %makeinstall_std
 touch %buildroot%{_datadir}/icons/hicolor/icon-theme.cache
 
+# automatic gtk icon cache update on rpm installs/removals
+# (see http://wiki.mandriva.com/en/Rpm_filetriggers)
+install -d %buildroot%{_var}/lib/rpm/filetriggers
+cat > %buildroot%{_var}/lib/rpm/filetriggers/gtk-icon-cache-hicolor.filter << EOF
+^./usr/share/icons/hicolor/
+EOF
+cat > %buildroot%{_var}/lib/rpm/filetriggers/gtk-icon-cache-hicolor.script << EOF
+#!/bin/sh
+if [ -x /usr/bin/gtk-update-icon-cache ]; then 
+  /usr/bin/gtk-update-icon-cache --force --quiet /usr/share/icons/hicolor
+fi
+EOF
+chmod 755 %buildroot%{_var}/lib/rpm/filetriggers/gtk-icon-cache-hicolor.script
+
 %clean
 rm -rf %{buildroot}
 
@@ -44,3 +58,4 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/index.theme
 %{_datadir}/icons/hicolor/*/
 %ghost %{_datadir}/icons/hicolor/icon-theme.cache
+%{_var}/lib/rpm/filetriggers/gtk-icon-cache-hicolor.*

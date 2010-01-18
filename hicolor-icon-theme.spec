@@ -1,6 +1,6 @@
 Summary:	Basic requirement for icon themes
 Name:		hicolor-icon-theme
-Version:	0.11
+Version:	0.12
 Release:	%mkrel 1
 License:	GPL
 Group:		Graphical desktop/Other

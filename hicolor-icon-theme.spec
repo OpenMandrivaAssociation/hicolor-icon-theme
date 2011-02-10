@@ -48,4 +48,3 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/index.theme
 %{_datadir}/icons/hicolor/*/
 %ghost %{_datadir}/icons/hicolor/icon-theme.cache
-%{_var}/lib/rpm/filetriggers/gtk-icon-cache-hicolor.*

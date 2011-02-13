@@ -1,7 +1,7 @@
 Summary:	Basic requirement for icon themes
 Name:		hicolor-icon-theme
 Version:	0.12
-Release:	%mkrel 3
+Release:	%mkrel 4
 License:	GPL
 Group:		Graphical desktop/Other
 URL:		http://icon-theme.freedesktop.org/wiki/HicolorTheme
@@ -35,10 +35,10 @@ rm -rf %{buildroot}
 %postun
 %clean_icon_cache hicolor
 
-%triggerin -- /usr/share/icons/hicolor/*
+%triggerin -- %{_iconsdir}/hicolor/*/*/*
 %update_icon_cache hicolor
 
-%triggerpostun -- /usr/share/icons/hicolor/*
+%triggerpostun -- %{_iconsdir}/hicolor/*/*/*
 %update_icon_cache hicolor
 
 %files

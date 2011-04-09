@@ -46,5 +46,6 @@ rm -rf %{buildroot}
 %doc README
 %dir %{_datadir}/icons/hicolor
 %{_datadir}/icons/hicolor/index.theme
-%{_datadir}/icons/hicolor/*/
+%{_datadir}/icons/hicolor/*x*/
+%{_datadir}/icons/hicolor/scalable/
 %ghost %{_datadir}/icons/hicolor/icon-theme.cache

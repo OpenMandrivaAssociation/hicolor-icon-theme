@@ -1,7 +1,7 @@
 Summary:	Basic requirement for icon themes
 Name:		hicolor-icon-theme
 Version:	0.12
-Release:	8
+Release:	9
 License:	GPL
 Group:		Graphical desktop/Other
 URL:		http://icon-theme.freedesktop.org/wiki/HicolorTheme
@@ -46,7 +46,7 @@ touch %{buildroot}%{_datadir}/icons/hicolor/icon-theme.cache
 + Revision: 665413
 - mass rebuild
 
-  + Per Øyvind Karlsen <peroyvind@mandriva.org>
+  + Per Ã˜yvind Karlsen <peroyvind@mandriva.org>
     - avoid including same files twice (..and with different attributes)
 
 * Sat Feb 26 2011 Funda Wang <fwang@mandriva.org> 0.12-6
@@ -70,7 +70,7 @@ touch %{buildroot}%{_datadir}/icons/hicolor/icon-theme.cache
 + Revision: 605858
 - rebuild
 
-* Mon Jan 18 2010 Götz Waschk <waschk@mandriva.org> 0.12-1mdv2010.1
+* Mon Jan 18 2010 GÃ¶tz Waschk <waschk@mandriva.org> 0.12-1mdv2010.1
 + Revision: 492990
 - update to new version 0.12
 
@@ -114,10 +114,10 @@ touch %{buildroot}%{_datadir}/icons/hicolor/icon-theme.cache
   Remove patch0, no longer needed with latest gnome-icon-theme
 - Import hicolor-icon-theme
 
-* Sat Sep 02 2006 Götz Waschk <waschk@mandriva.org> 0.9-1mdv2007.0
+* Sat Sep 02 2006 GÃ¶tz Waschk <waschk@mandriva.org> 0.9-1mdv2007.0
 - rebuild for new clean_icon_cache macro
 
-* Thu Aug 31 2006 G�tz Waschk <waschk@mandriva.org> 0.9-4mdv2007.0
+* Thu Aug 31 2006 Götz Waschk <waschk@mandriva.org> 0.9-4mdv2007.0
 - fix uninstallation
 
 * Mon Mar 06 2006 Frederic Crozat <fcrozat@mandriva.com> 0.9-3mdk
@@ -127,11 +127,11 @@ touch %{buildroot}%{_datadir}/icons/hicolor/icon-theme.cache
 - Patch0: add missing generic stock icon (Mdk bug #21426)
 - Update gtk icon cache on install/upgrade, if gtk-update-icon-cache is present
 
-* Thu Mar 02 2006 Götz Waschk <waschk@mandriva.org> 0.9-1mdk
+* Thu Mar 02 2006 GÃ¶tz Waschk <waschk@mandriva.org> 0.9-1mdk
 - New release 0.9
 - use mkrel
 
-* Wed Apr 27 2005 G�tz Waschk <waschk@mandriva.org> 0.8-1mdk
+* Wed Apr 27 2005 Götz Waschk <waschk@mandriva.org> 0.8-1mdk
 - New release 0.8
 
 * Fri Feb 04 2005 Frederic Crozat <fcrozat@mandrakesoft.com> 0.7-1mdk

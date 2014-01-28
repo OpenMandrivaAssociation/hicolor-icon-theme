@@ -1,11 +1,11 @@
 Summary:	Basic requirement for icon themes
 Name:		hicolor-icon-theme
-Version:	0.12
-Release:	14
+Version:	0.13
+Release:	1
 License:	GPLv2
 Group:		Graphical desktop/Other
 Url:		http://icon-theme.freedesktop.org/wiki/HicolorTheme
-Source0:	http://icon-theme.freedesktop.org/releases/%{name}-%{version}.tar.bz2
+Source0:	http://icon-theme.freedesktop.org/releases/hicolor-icon-theme-%{version}.tar.gz
 BuildArch:	noarch
 
 %description

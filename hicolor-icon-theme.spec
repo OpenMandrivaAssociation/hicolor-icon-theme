@@ -1,4 +1,6 @@
 Summary:	Basic requirement for icon themes
+
+
 Name:		hicolor-icon-theme
 Version:	0.12
 Release:	10

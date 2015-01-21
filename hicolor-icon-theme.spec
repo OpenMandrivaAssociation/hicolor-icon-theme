@@ -1,8 +1,8 @@
 Summary:	Basic requirement for icon themes
 
 Name:		hicolor-icon-theme
-Version:	0.13
-Release:	6
+Version:	0.14
+Release:	1
 License:	GPLv2
 Group:		Graphical desktop/Other
 Url:		http://icon-theme.freedesktop.org/wiki/HicolorTheme
@@ -18,7 +18,7 @@ Contains the basic directories and files needed for icon theme support.
 %apply_patches
 
 %build
-%configure2_5x
+%configure
 %make
 
 %install

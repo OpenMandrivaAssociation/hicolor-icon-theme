@@ -1,8 +1,7 @@
 Summary:	Basic requirement for icon themes
-
 Name:		hicolor-icon-theme
 Version:	0.17
-Release:	1
+Release:	2
 License:	GPLv2
 Group:		Graphical desktop/Other
 Url:		http://icon-theme.freedesktop.org/wiki/HicolorTheme
@@ -14,36 +13,30 @@ BuildArch:	noarch
 Contains the basic directories and files needed for icon theme support.
 
 %prep
-%setup -q
-%apply_patches
+%autosetup -p1
 
 %build
 %configure
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 touch %{buildroot}%{_datadir}/icons/hicolor/icon-theme.cache
 
 # automatic gtk icon cache update on rpm installs/removals
-# (see http://wiki.mandriva.com/en/Rpm_filetriggers)
-install -d %{buildroot}%{_var}/lib/rpm/filetriggers
-cat > %{buildroot}%{_var}/lib/rpm/filetriggers/gtk-icon-cache-hicolor.filter << EOF
-^./usr/share/icons/hicolor/
-EOF
-cat > %{buildroot}%{_var}/lib/rpm/filetriggers/gtk-icon-cache-hicolor.script << EOF
-#!/bin/sh
+%transfiletriggerin -- %{_datadir}/icons/hicolor
 if [ -x /usr/bin/gtk-update-icon-cache ]; then
-  /usr/bin/gtk-update-icon-cache --force --quiet /usr/share/icons/hicolor
+    gtk-update-icon-cache --force %{_datadir}/icons/hicolor &>/dev/null || :
 fi
-EOF
-chmod 755 %{buildroot}%{_var}/lib/rpm/filetriggers/gtk-icon-cache-hicolor.script
+
+%transfiletriggerpostun -- %{_datadir}/icons/hicolor
+if [ -x /usr/bin/gtk-update-icon-cache ]; then
+    gtk-update-icon-cache --force %{_datadir}/icons/hicolor &>/dev/null || :
+fi
 
 %files
 %doc README
 %dir %{_iconsdir}/hicolor
 %{_iconsdir}/hicolor/*x*
 %ghost %{_iconsdir}/hicolor/icon-theme.cache
-%{_var}/lib/rpm/filetriggers/gtk-icon-cache-hicolor.*
-

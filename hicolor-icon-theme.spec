@@ -7,6 +7,7 @@ Group:		Graphical desktop/Other
 Url:		http://icon-theme.freedesktop.org/wiki/HicolorTheme
 Source0:	https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-%{version}.tar.xz
 Patch0:		01_dont_scale_22x22_apps_icons_for_hicolor.patch
+Requires:	gtk-update-icon-cache
 BuildArch:	noarch
 
 %description
@@ -26,13 +27,13 @@ touch %{buildroot}%{_datadir}/icons/hicolor/icon-theme.cache
 
 # automatic gtk icon cache update on rpm installs/removals
 %transfiletriggerin -- %{_datadir}/icons/hicolor
-if [ -x /usr/bin/gtk2.0-update-icon-cache ]; then
-    gtk2.0-update-icon-cache --force %{_datadir}/icons/hicolor &>/dev/null || :
+if [ -x /usr/bin/gtk-update-icon-cache ]; then
+    gtk-update-icon-cache --force %{_datadir}/icons/hicolor &>/dev/null || :
 fi
 
 %transfiletriggerpostun -- %{_datadir}/icons/hicolor
-if [ -x /usr/bin/gtk2.0-update-icon-cache ]; then
-    gtk2.0-update-icon-cache --force %{_datadir}/icons/hicolor &>/dev/null || :
+if [ -x /usr/bin/gtk-update-icon-cache ]; then
+    gtk-update-icon-cache --force %{_datadir}/icons/hicolor &>/dev/null || :
 fi
 
 %files

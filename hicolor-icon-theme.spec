@@ -1,7 +1,7 @@
 Summary:	Basic requirement for icon themes
 Name:		hicolor-icon-theme
 Version:	0.17
-Release:	2
+Release:	3
 License:	GPLv2
 Group:		Graphical desktop/Other
 Url:		http://icon-theme.freedesktop.org/wiki/HicolorTheme
@@ -26,13 +26,13 @@ touch %{buildroot}%{_datadir}/icons/hicolor/icon-theme.cache
 
 # automatic gtk icon cache update on rpm installs/removals
 %transfiletriggerin -- %{_datadir}/icons/hicolor
-if [ -x /usr/bin/gtk-update-icon-cache ]; then
-    gtk-update-icon-cache --force %{_datadir}/icons/hicolor &>/dev/null || :
+if [ -x /usr/bin/gtk2.0-update-icon-cache ]; then
+    gtk2.0-update-icon-cache --force %{_datadir}/icons/hicolor &>/dev/null || :
 fi
 
 %transfiletriggerpostun -- %{_datadir}/icons/hicolor
-if [ -x /usr/bin/gtk-update-icon-cache ]; then
-    gtk-update-icon-cache --force %{_datadir}/icons/hicolor &>/dev/null || :
+if [ -x /usr/bin/gtk2.0-update-icon-cache ]; then
+    gtk2.0-update-icon-cache --force %{_datadir}/icons/hicolor &>/dev/null || :
 fi
 
 %files

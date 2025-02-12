@@ -8,7 +8,7 @@ Url:		https://www.freedesktop.org/wiki/Software/icon-theme/
 Source0:	https://icon-theme.freedesktop.org/releases/%{name}-%{version}.tar.xz
 Patch0:		01_dont_scale_22x22_apps_icons_for_hicolor.patch
 # upstream patch to include directories for @2 scaled icons
-Patch1:		https://gitlab.freedesktop.org/xdg/default-icon-theme/-/commit/b3f1207.patch
+#Patch1:		https://gitlab.freedesktop.org/xdg/default-icon-theme/-/commit/b3f1207.patch
 Requires:	gtk-update-icon-cache
 BuildArch:	noarch
 

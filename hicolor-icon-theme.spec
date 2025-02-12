@@ -41,7 +41,7 @@ fi
 
 %files
 %license COPYING
-%doc README
+#doc README
 %dir %{_iconsdir}/hicolor
 %{_iconsdir}/hicolor/16x16/
 %{_iconsdir}/hicolor/16x16@2/

@@ -73,3 +73,4 @@ fi
 %{_iconsdir}/hicolor/symbolic/
 %{_iconsdir}/hicolor/index.theme
 %ghost %{_iconsdir}/hicolor/icon-theme.cache
+%{_datadir}/pkgconfig/default-icon-theme.pc

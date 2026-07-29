@@ -1,7 +1,7 @@
 Summary:	Basic requirement for icon themes
 Name:		hicolor-icon-theme
 Version:	0.18
-Release:	1
+Release:	2
 License:	GPLv2
 Group:		Graphical desktop/Other
 Url:		https://www.freedesktop.org/wiki/Software/icon-theme/
@@ -9,35 +9,11 @@ Source0:	https://icon-theme.freedesktop.org/releases/%{name}-%{version}.tar.xz
 #Patch0:		01_dont_scale_22x22_apps_icons_for_hicolor.patch
 # upstream patch to include directories for @2 scaled icons
 #Patch1:		https://gitlab.freedesktop.org/xdg/default-icon-theme/-/commit/b3f1207.patch
-BuildRequires: meson
-Requires:	gtk-update-icon-cache
+BuildSystem:	meson
 BuildArch:	noarch
 
 %description
 Contains the basic directories and files needed for icon theme support.
-
-%prep
-%autosetup -p1
-
-%build
-%meson
-%meson_build
-
-%install
-%meson_install
-
-touch %{buildroot}%{_iconsdir}/hicolor/icon-theme.cache
-
-# automatic gtk icon cache update on rpm installs/removals
-%transfiletriggerin -- %{_iconsdir}/hicolor
-if [ -x /usr/bin/gtk-update-icon-cache ]; then
-    gtk-update-icon-cache --force %{_iconsdir}/hicolor &>/dev/null || :
-fi
-
-%transfiletriggerpostun -- %{_iconsdir}/hicolor
-if [ -x /usr/bin/gtk-update-icon-cache ]; then
-    gtk-update-icon-cache --force %{_iconsdir}/hicolor &>/dev/null || :
-fi
 
 %files
 %license COPYING
@@ -72,5 +48,4 @@ fi
 %{_iconsdir}/hicolor/scalable/
 %{_iconsdir}/hicolor/symbolic/
 %{_iconsdir}/hicolor/index.theme
-%ghost %{_iconsdir}/hicolor/icon-theme.cache
 %{_datadir}/pkgconfig/default-icon-theme.pc
